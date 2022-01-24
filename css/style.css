@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/*-----------------------GENERALES------------------------*/
+
+nav {
+    width: 100%;
+}
+
+nav div {
+    /*este div contiene el logo*/
+    width: 100%;
+    height: 60px;
+}
+
+nav div img {
+    /*este es el logo*/
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: .5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #EA5147;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    /*esta es una funcion que como primer valor tiene el valor inicial de la fuente (en este caso en mobile va a tener .6rem de tamaño) y luego va a crecer segun el viewport width, o sea el ancho de la pantalla*/
+    font-size: calc(.6rem + .6vw);
+    /*así luego en vista desktop no tengo que poner una línea más de código para indicarle otro tamaño a la fuente*/
+}
+
+.active {
+    color: #323954;
+}
+
+@media screen and (min-width: 768px) {
+    /*aquí van todos los estilos para dispositivos desde 768px*/
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    nav div {
+        width: 100px;
+        height: 80px;
+    }
+    nav ul li {
+        padding: 2rem;
+    }
+    nav ul li a:hover {
+        color: #323954;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #323954;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer div {
+    margin-top: 6rem;
+}
+
+footer a {
+    color: white;
+}
+
+.btn {
+    /*este es el estilo para mis botones, puedo añadir estilos como cambiar tamaño, color, etc luego cuando corresponda pero por ahora este es el estilo general de mis botones*/
+    padding: 1rem;
+    background-color: #EA5147;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.title2 {
+    /*estilos para mis h2, después añado más estilos según sea necesario pero aquí estan los generales (tipo de letra, tamaños, etc)*/
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #323954;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: calc(1rem + 2vw);
+}
+
+
+/*-----------------------INDEX------------------------*/
+
+.welcome {
+    width: 100%;
+    height: 90vh;
+}
+
+.welcome__img {
+    width: 100%;
+    height: 100%;
+}
+
+.welcome__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome__info {
+    position: absolute;
+    top: 50%;
+    left: .4rem;
+}
+
+.welcome__info h1 {
+    color: #EA5147;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: calc(1.5rem + 2.2vw);
+    margin-bottom: 2rem;
+}
+
+.welcome__info p {
+    color: #323954;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+@media screen and (min-width:768px) {
+    /*nuevamente, los estilos aplicados aquí se verán en dispositivos de 768px en adelante*/
+    .welcome__info {
+        left: 2rem;
+    }
+}
+
+.favourites {
+    width: 100%;
+    padding: 7rem 0;
+}
+
+.grid {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    /* quiero 3 columnas  */
+    grid-template-rows: 280px 280px 280px;
+    /* el alto de cada cuadradito/alto de la fila */
+    grid-gap: 1rem;
+    /*separacion */
+    margin: auto;
+    /*para centrar la grilla, le estoy diciendo que ocupe 80% de su padre que es el ancho completo del viewport*/
+}
+
+.grid__img {
+    width: 100%;
+    height: 100%;
+    /* indico que ocupe la totalidad de la columna/fila de la grilla */
+}
+
+.grid__img img {
+    width: 100%;
+    height: 100%;
+    /*indico que ocupe 100% de ancho y alto de su contenedor*/
+    object-fit: cover;
+    /*para que se ajuste bien y no quede estirada la imagen*/
+    border-radius: 10px;
+    transition: .5s all;
+    /*para que la pequeña "animacion" de las imagenes sea de forma suave*/
+}
+
+@media screen and (min-width: 768px) {
+    .grid {
+        width: 80%;
+        grid-template-columns: repeat(3, 1fr);
+        /* quiero 3 columnas  */
+        grid-template-rows: 350px 350px;
+        /* el alto de cada cuadradito/alto de la fila */
+        grid-gap: 1.5rem;
+        /*separacion */
+    }
+    .grid__img img:hover {
+        transform: scale(1.01);
+    }
+}
+
+.parallax {
+    /*efecto parallax*/
+    background-image: url("https://images.pexels.com/photos/709841/pexels-photo-709841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.contactus {
+    width: 90%;
+    height: 250px;
+    background-color: #EA5147;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    color: rgb(238, 237, 237)
+}
+
+.contactus .title2 {
+    letter-spacing: 3px;
+    color: rgb(245, 244, 244);
+    font-size: calc(1rem + .5vw);
+}
+
+.contactus p {
+    margin-bottom: 1rem;
+}
+
+.contactus .btn {
+    background-color: #323954;
+    width: 180px;
+    text-align: center;
+}
+
+@media screen and (min-width:600px) {
+    .contactus {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .parallax {
+        height: 500px;
+    }
+    .contactus {
+        width: 45%;
+        margin-left: 5rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .contactus {
+        width: 40%;
+    }
+}
+
+.visitus {
+    width: 100%;
+}
+
+.visitus .title2 {
+    color: #EA5147;
+    margin: 4rem 0;
+}
